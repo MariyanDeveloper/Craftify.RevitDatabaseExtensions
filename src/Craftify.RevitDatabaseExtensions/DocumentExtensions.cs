@@ -21,7 +21,7 @@ namespace Craftify.RevitDatabaseExtensions
             where TElement : Element
         {
 
-            validate ??= (e => true);
+            validate ??= (_ => true);
             var elements = new FilteredElementCollector(document)
                 .OfClass(typeof(TElement))
                 .Cast<TElement>()
@@ -46,7 +46,9 @@ namespace Craftify.RevitDatabaseExtensions
                 .OfClass(typeof(TElement))
                 .FirstOrDefault(e => e.Name == name);
             if (element is null)
+            {
                 throw new ArgumentNullException($"The element of the given name : {name} is not present in a document");
+            }
             return element as TElement;
         }
 
@@ -174,52 +176,16 @@ namespace Craftify.RevitDatabaseExtensions
         public static TReturn Run<TReturn>(
             this Document document, Func<TReturn> doAction, string transactionName = "Default transaction name")
         {
-            TReturn output;
-            using (var transaction = new Transaction(document, transactionName))
-            {
-                transaction.Start();
-                output = doAction.Invoke();
-                transaction.Commit();
-            }
-
+            using var transaction = new Transaction(document, transactionName);
+            transaction.Start();
+            var output = doAction.Invoke();
+            transaction.Commit();
             return output;
         }
-
         public static TElement GetElement<TElement>(this Document document, ElementId elementId)
         where TElement : Element
         {
-            return document.GetElement(elementId) as TElement;
+            return (TElement)document.GetElement(elementId);
         }
-
-        /// <summary>
-        /// This method is used to create direct shapes in a Revit Document
-        /// </summary>
-        /// <param name="document"></param>
-        /// <param name="geometryObjects"></param>
-        /// <param name="builtInCategory"></param>
-        /// <returns></returns>
-        public static DirectShape CreateDirectShape(
-            this Document document,
-            IEnumerable<GeometryObject> geometryObjects,
-            BuiltInCategory builtInCategory = BuiltInCategory.OST_GenericModel)
-        {
-
-            var directShape = DirectShape.CreateElement(document, new ElementId(builtInCategory));
-            directShape.SetShape(geometryObjects.ToList());
-            return directShape;
-
-        }
-
-        public static DirectShape CreateDirectShape(
-            this Document document,
-            GeometryObject geometryObject,
-            BuiltInCategory builtInCategory = BuiltInCategory.OST_GenericModel)
-        {
-
-            var directShape = DirectShape.CreateElement(document, new ElementId(builtInCategory));
-            directShape.SetShape(new List<GeometryObject>() { geometryObject });
-            return directShape;
-        }
-
     }
 }

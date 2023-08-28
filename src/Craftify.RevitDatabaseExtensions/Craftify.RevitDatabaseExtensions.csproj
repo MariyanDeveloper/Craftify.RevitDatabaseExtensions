@@ -5,13 +5,11 @@
         <TargetFramework>net48</TargetFramework>
         <LangVersion>latest</LangVersion>
         <Nullable>enable</Nullable>
+        <Version>1.0.2</Version>
     </PropertyGroup>
     <ItemGroup>
+        <PackageReference Include="Craftify.Geometry" Version="1.0.0" />
         <PackageReference Include="Revit_All_Main_Versions_API_x64" Version="2023.0.0" />
     </ItemGroup>
-    <ItemGroup>
-      <Reference Include="Craftify.Geometry">
-        <HintPath>..\..\..\Craftify.Geometry\src\Craftify.Geometry\bin\Debug\net48\Craftify.Geometry.dll</HintPath>
-      </Reference>
-    </ItemGroup>
+
 </Project>
