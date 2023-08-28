@@ -5,11 +5,26 @@
         <TargetFramework>net48</TargetFramework>
         <LangVersion>latest</LangVersion>
         <Nullable>enable</Nullable>
-        <Version>1.0.2</Version>
+        <Version>1.0.0</Version>
+        <Title>Craftify.RevitDatabaseExtensions</Title>
+        <Description>Library provides a collection of extension methods tailored for seamless interaction with Revit elements</Description>
+        <PackageProjectUrl>https://github.com/MariyanDeveloper/Craftify.RevitDatabaseExtensions</PackageProjectUrl>
+        <PackageIcon>Craftify.png</PackageIcon>
+        <RepositoryUrl>https://github.com/MariyanDeveloper/Craftify.RevitDatabaseExtensions</RepositoryUrl>
+        <RepositoryType>github</RepositoryType>
+        <PackageTags>RevitAPI,C#,ElementExtensions</PackageTags>
+        <Authors>Mariyan Slesar</Authors>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Craftify.Geometry" Version="1.0.0" />
         <PackageReference Include="Revit_All_Main_Versions_API_x64" Version="2023.0.0" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="..\..\..\ProductInformation\Craftify.png">
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
+        <Link>Craftify.png</Link>
+      </None>
     </ItemGroup>
 
 </Project>

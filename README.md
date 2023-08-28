@@ -1,2 +1,3 @@
 # Craftify.RevitDatabaseExtensions
-This Project helps leverage the power of Revit database elements
+Library provides a collection of extension methods tailored for seamless interaction with Revit elements
+~~~~~~~~~~~~~~~~
