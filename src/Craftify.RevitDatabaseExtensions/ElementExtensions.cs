@@ -81,6 +81,7 @@ public static class ElementExtensions
         return element
             .GetGeometryObjects<T>(options);
     }
+    
     public static bool HasGeometryElement(this Element element) => element.get_Geometry(new Options()) is not null;
 
 }

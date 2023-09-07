@@ -3,6 +3,7 @@ using System.Linq;
 using Autodesk.Revit.DB;
 using Craftify.Geometry.Enums;
 using Craftify.Geometry.Extensions;
+using Craftify.Geometry.Extensions.Solids;
 using Craftify.RevitDatabaseExtensions.Exceptions;
 
 namespace Craftify.RevitDatabaseExtensions;
