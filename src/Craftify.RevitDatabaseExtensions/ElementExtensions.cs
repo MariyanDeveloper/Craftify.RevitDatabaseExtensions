@@ -71,7 +71,16 @@ public static class ElementExtensions
             ids,
             translation);
     }
-    
+    public static IEnumerable<T> GetCutGeometryObjectsOnView<T>(
+        this Element element,
+        View view,
+        Options? options = null) where T : GeometryObject
+    {
+        options ??= new Options();
+        options.View = view;
+        return element
+            .GetGeometryObjects<T>(options);
+    }
     public static bool HasGeometryElement(this Element element) => element.get_Geometry(new Options()) is not null;
 
 }

@@ -26,5 +26,11 @@
         <Link>Craftify.png</Link>
       </None>
     </ItemGroup>
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <Exec Command="del &quot;$(OutputPath)\AdWindows.dll&quot;" />
+        <Exec Command="del &quot;$(OutputPath)\RevitAPI.dll&quot;" />
+        <Exec Command="del &quot;$(OutputPath)\RevitAPIUI.dll&quot;" />
+        <Exec Command="del &quot;$(OutputPath)\UIFramework.dll&quot;" />
+    </Target>
 
 </Project>
