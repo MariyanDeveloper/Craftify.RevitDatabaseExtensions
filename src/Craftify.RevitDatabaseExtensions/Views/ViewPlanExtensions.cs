@@ -1,7 +1,7 @@
 ﻿using Autodesk.Revit.DB;
 using Craftify.Geometry.Extensions;
 
-namespace Craftify.RevitDatabaseExtensions;
+namespace Craftify.RevitDatabaseExtensions.Views;
 
 public static class ViewPlanExtensions
 {

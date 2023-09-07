@@ -1,6 +1,6 @@
 ﻿using Autodesk.Revit.DB;
 
-namespace Craftify.RevitDatabaseExtensions;
+namespace Craftify.RevitDatabaseExtensions.Views;
 
 public static class ViewExtensions
 {
