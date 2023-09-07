@@ -19,11 +19,11 @@ public static class ElementExtensions
     {
         ElementArgumentNullException.ThrowIfElementNull(element);
         var document = element.Document;
-        return document.GetElement(ElementTransformUtils
+        return (TElement)document.GetElement(ElementTransformUtils
             .CopyElement(
                 document,
                 element.Id,
-                XYZ.Zero).First()) as TElement;
+                XYZ.Zero).First());
     }
     
     

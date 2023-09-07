@@ -5,7 +5,7 @@
         <TargetFramework>net48</TargetFramework>
         <LangVersion>latest</LangVersion>
         <Nullable>enable</Nullable>
-        <Version>1.0.0</Version>
+        <Version>1.1.0</Version>
         <Title>Craftify.RevitDatabaseExtensions</Title>
         <Description>Library provides a collection of extension methods tailored for seamless interaction with Revit elements</Description>
         <PackageProjectUrl>https://github.com/MariyanDeveloper/Craftify.RevitDatabaseExtensions</PackageProjectUrl>

@@ -49,7 +49,7 @@ public static class DocumentExtensions
         {
             throw new ArgumentNullException($"The element of the given name : {name} is not present in a document");
         }
-        return element as TElement;
+        return (TElement)element;
     }
 
 
