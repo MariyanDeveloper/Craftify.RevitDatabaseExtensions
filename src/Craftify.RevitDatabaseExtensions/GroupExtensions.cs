@@ -6,7 +6,7 @@ namespace Craftify.RevitDatabaseExtensions;
 
 public static class GroupExtensions
 {
-    public static GroupChildren GetChildren(this Group group)
+    public static GroupChildren<Element> GetChildren(this Group group)
     {
         return group
             .GetMemberIds()
@@ -14,7 +14,7 @@ public static class GroupExtensions
             .ToGroupChildren();
     }
 
-    public static GroupChildren GetChildren<T>(this Group group) where T : Element
+    public static GroupChildren<T> GetChildren<T>(this Group group) where T : Element
     {
         return group
             .GetMemberIds()

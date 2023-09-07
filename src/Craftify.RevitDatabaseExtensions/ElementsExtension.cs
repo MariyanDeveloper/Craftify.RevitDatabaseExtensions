@@ -6,5 +6,8 @@ namespace Craftify.RevitDatabaseExtensions;
 
 public static class ElementsExtension
 {
-    public static GroupChildren ToGroupChildren(this IEnumerable<Element> elements) => new (elements);
+    public static GroupChildren<T> ToGroupChildren<T>(this IEnumerable<T> elements) where T: Element
+    {
+        return new (elements);
+    }
 }
