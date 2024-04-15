@@ -1,21 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using Autodesk.Revit.DB;
-using Craftify.Geometry.BoundingBoxes;
-using Craftify.Geometry.Enums;
 
-namespace Craftify.RevitDatabaseExtensions.WallJoins;
+namespace Craftify.RevitDatabaseExtensions.Walls;
 
-public static class WallExtensions
+public static class WallConstraintsSelectors
 {
-    public static double GetHeight(this Wall wall)
-    {
-        return wall.get_BoundingBox(default).CalculateSideDimension(Side.Height);
-    }
-    public static bool MatchesOrientation(this Wall wall, XYZ vector) => wall.Orientation.IsAlmostEqualTo(vector);
-    public static bool MatchesOrientation(this Wall wall, Wall otherWall) => wall.Orientation.IsAlmostEqualTo(otherWall.Orientation);
-    
     public static ElementId GetTopConstraintLevelId(this Wall wall) =>
         wall.GetParameterByBuiltInParameter(BuiltInParameter.WALL_HEIGHT_TYPE)
             .AsElementId();
@@ -49,18 +38,5 @@ public static class WallExtensions
         );
     }
     
-    public static bool IsUnconnected(this Wall wall) =>
-        wall.GetParameterByBuiltInParameter(BuiltInParameter.WALL_HEIGHT_TYPE)
-            .AsElementId() == ElementId.InvalidElementId;
-    
-    public static IEnumerable<Wall> WhereOrientationMatches(this IEnumerable<Wall> walls, XYZ orientation)
-    {
-        return walls
-            .Where(w => w.MatchesOrientation(orientation));
-    }
-    public static IEnumerable<Wall> WhereOrientationMatches(this IEnumerable<Wall> walls, Wall wall)
-    {
-        return walls
-            .Where(w => w.MatchesOrientation(wall));
-    }
+   
 }

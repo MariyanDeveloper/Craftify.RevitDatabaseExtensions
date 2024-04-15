@@ -3,7 +3,7 @@ using Autodesk.Revit.DB;
 using Craftify.Geometry.Extensions.Curves;
 using Craftify.Geometry.Extensions.Solids;
 
-namespace Craftify.RevitDatabaseExtensions.WallJoins;
+namespace Craftify.RevitDatabaseExtensions.Walls;
 
 public static class WallJoinExtensions
 {

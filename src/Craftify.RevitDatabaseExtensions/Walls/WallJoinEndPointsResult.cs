@@ -1,4 +1,4 @@
-namespace Craftify.RevitDatabaseExtensions.WallJoins;
+namespace Craftify.RevitDatabaseExtensions.Walls;
 
 public class WallJoinEndPointsResult
 {
